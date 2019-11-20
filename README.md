@@ -15,10 +15,6 @@ sudo docker run hello-world
 
 and docker composer on AWS linux (minimum small instance is required) 
 
-sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-(Verify Docker compose)
-docker-compose --version
 
 
 Pull both docker images to server
@@ -29,6 +25,15 @@ sudo docker pull docker.elastic.co/kibana/kibana:6.3.2
 
 run single node elastic with docker 
 docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.3.2
+
+
+Using docker-compose:
+
+
+sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+(Verify Docker compose)
+docker-compose --version
 
 
 After installation, put docker-compose.yml and execute below in same directory
