@@ -27,6 +27,12 @@ run single node elastic with docker
 docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:6.3.2
 
 
+sudo vi /etc/sysctl.conf
+add below to the conf
+vm.max_map_count=262144
+sudo sysctl -p
+
+
 Using docker-compose:
 
 
@@ -43,6 +49,6 @@ docker-compose up -d
 
 
 
-Elasticsearch is avaiable at http://localhost:8100/
+Elasticsearch is avaiable at http://localhost:9200/
 Kibana UI is up at http://localhost:5601/
 
